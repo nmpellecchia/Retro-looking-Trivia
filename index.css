@@ -1,0 +1,18 @@
+body {
+  background: rgb(66, 0, 87);
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+.trivia-wrapper {
+  background: #ffff;
+  width: 50%;
+  margin: 1rem 0 0 0;
+  border-radius: 50px 50px 0 0;
+}
