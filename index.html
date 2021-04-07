@@ -10,18 +10,17 @@
   <body>
     <div class="trivia-wrapper">
       <h1 class="title">Quiz!</h1>
-      <form class="trivia">
-        <fieldset>
+      <form class="trivia-form">
+        <fieldset class="trivia">
           <legend class="trivia-item question">Question goes here</legend>
           <ul class="trivia-item answer-list">
-            <!-- Visual tests, delete later -->
             <li class="answer-1">
               <input type="radio" name="answer" id="a1" />
               <label for="a1">answer</label>
             </li>
-            <!--  -->
+
             <li class="answer-2">
-              <input type="radio" name="answer" id="a2" />
+              <input type="radio" name="answer" id="a2" value="answer" />
               <label for="a2">answer</label>
             </li>
             <li class="answer-3">
@@ -33,7 +32,9 @@
               <label for="a4">answer</label>
             </li>
           </ul>
-          <button type="submit" class="trivia-item new-question">Start</button>
+          <button type="submit" class="trivia-item" id="start-trivia">
+            Start
+          </button>
         </fieldset>
       </form>
     </div>
