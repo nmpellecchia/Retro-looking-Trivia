@@ -8,8 +8,9 @@ async function getAPIData(url) {
   return data;
 }
 
-async function getTrivia() {
-  const URL = 'https://opentdb.com/api.php?amount=2&category=9&type=multiple';
+async function getTrivia(difficulty) {
+  const amount = '10';
+  const URL = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
 
   const APIData = await getAPIData(URL);
   const trivia = APIData.results;

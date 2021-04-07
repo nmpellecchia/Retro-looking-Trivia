@@ -9,8 +9,19 @@ function initialize() {
 
 async function startTrivia(e) {
   e.preventDefault();
+  /* user selects difficulty */
+  let difficulty;
+  const userDifficulty = document.querySelector(
+    'input[name="difficulty"]:checked'
+  );
+  /* don't compare using typeof because for null == object */
+  if (userDifficulty == null) {
+    difficulty = 'easy';
+  } else {
+    difficulty = userDifficulty.value;
+  }
   /* Get the full trivia */
-  const trivia = await getTrivia();
+  const trivia = await getTrivia(difficulty);
   handleQuestion(trivia);
 
   listenToUser(trivia);

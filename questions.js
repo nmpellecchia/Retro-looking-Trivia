@@ -49,15 +49,6 @@ function handleQuestion(trivia, firstTime = true) {
 
   /* Add the newQuestion and possible answers inside the HTML */
   populateHTML(newQuestion.question, shuffledAnswers);
-  /* 
-  // push the shuffledAnswers to the html (A radio button or li, idk yet)
-  console.log('Shuffled answers should be different than original order');
-
-  console.log(shuffledAnswers);
-  console.log([newQuestion.correct_answer, ...newQuestion.incorrect_answers]);
-
-  console.log('question');
-  console.log(newQuestion.question); */
 }
 
 function deleteQuestion(trivia) {
