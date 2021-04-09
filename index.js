@@ -1,5 +1,6 @@
 import { getTrivia } from './trivia-api.js';
 import { handleQuestion } from './questions.js';
+import { setCounter } from './ux.js';
 
 function initialize() {
   const $startButton = document.querySelector('#start-trivia');
@@ -22,6 +23,7 @@ async function startTrivia(e) {
   }
   /* Get the full trivia */
   const trivia = await getTrivia(difficulty);
+  setCounter(trivia.length);
   handleQuestion(trivia);
 
   listenToUser(trivia);

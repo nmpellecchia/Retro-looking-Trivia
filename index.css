@@ -28,11 +28,16 @@ h1.title {
   font-size: 2.3rem;
 }
 
+.counter {
+  display: flex;
+}
+
 .trivia-form {
   display: flex;
   flex-direction: column;
   /*  align-items: center; */
   flex-grow: 1;
+  order: 1;
 }
 
 fieldset {

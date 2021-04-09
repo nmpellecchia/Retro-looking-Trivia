@@ -1,4 +1,7 @@
-import { populateHTML, clearTriviaHTML } from './ux.js';
+import { populateHTML, clearTriviaHTML, updateCount } from './ux.js';
+
+let score = 0;
+let totalCount = 0;
 
 function shuffleAnswers(correctAnswer, incorrectAnswers) {
   const shuffledAnswers = [correctAnswer, ...incorrectAnswers];
@@ -20,10 +23,13 @@ function isAnswerCorrect(answer) {
   const userAnswer = document.querySelector('input[name="answer"]:checked');
 
   if (userAnswer.value == answer) {
-    console.log('correct!');
+    score++;
+    console.log(score);
   } else {
     console.log('BUUUUUU');
   }
+  totalCount++;
+  updateCount(totalCount);
 }
 
 function handleQuestion(trivia, firstTime = true) {
@@ -36,6 +42,7 @@ function handleQuestion(trivia, firstTime = true) {
   /* Now that the user input has been handled, check if there's another question */
   if (!trivia.length) {
     console.log('trivia arr is empty');
+    //////////////////////////////7 SHOW SCORE
     return;
   }
   /* Clear the HTML to avoid any problems */

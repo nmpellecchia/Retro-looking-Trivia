@@ -49,4 +49,34 @@ function clearTriviaHTML() {
   $question.remove();
 }
 
-export { populateHTML, clearTriviaHTML };
+function updateCount(newValue) {
+  const answeredQuestions = document.querySelector('.answered-questions');
+  answeredQuestions.innerHTML = newValue;
+}
+
+function setCounter(total) {
+  const $trivia = document.querySelector('.trivia-wrapper');
+  //
+  const $counter = document.createElement('div');
+  $counter.classList.add('counter');
+  //
+  const $answeredQuestions = document.createElement('p');
+  $answeredQuestions.classList.add('answered-questions');
+  $answeredQuestions.innerHTML = 0;
+  //
+  const $divisor = document.createElement('p');
+  $divisor.classList.add('divisor');
+  $divisor.innerHTML = '/';
+  //
+  const $totalQuestions = document.createElement('p');
+  $totalQuestions.classList.add('total-questions');
+  $totalQuestions.innerHTML = total;
+  //
+  $counter.appendChild($answeredQuestions);
+  $counter.appendChild($divisor);
+  $counter.appendChild($totalQuestions);
+  //
+  $trivia.appendChild($counter);
+}
+
+export { populateHTML, clearTriviaHTML, updateCount, setCounter };
