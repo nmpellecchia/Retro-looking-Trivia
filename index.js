@@ -23,6 +23,7 @@ async function startTrivia(e) {
   }
   /* Get the full trivia */
   const trivia = await getTrivia(difficulty);
+  /* Display the counter and start the trivia */
   setCounter(trivia.length);
   handleQuestion(trivia);
 

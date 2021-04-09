@@ -79,4 +79,12 @@ function setCounter(total) {
   $trivia.appendChild($counter);
 }
 
-export { populateHTML, clearTriviaHTML, updateCount, setCounter };
+function showScore(score) {
+  const $counter = document.querySelector('.counter');
+  const $answeredQuestions = document.querySelector('.answered-questions');
+  //
+  $counter.classList.add('total-score');
+  $answeredQuestions.innerHTML = score;
+}
+
+export { populateHTML, clearTriviaHTML, updateCount, setCounter, showScore };

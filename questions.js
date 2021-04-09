@@ -1,4 +1,4 @@
-import { populateHTML, clearTriviaHTML, updateCount } from './ux.js';
+import { populateHTML, clearTriviaHTML, updateCount, showScore } from './ux.js';
 
 let score = 0;
 let totalCount = 0;
@@ -24,7 +24,6 @@ function isAnswerCorrect(answer) {
 
   if (userAnswer.value == answer) {
     score++;
-    console.log(score);
   } else {
     console.log('BUUUUUU');
   }
@@ -43,6 +42,8 @@ function handleQuestion(trivia, firstTime = true) {
   if (!trivia.length) {
     console.log('trivia arr is empty');
     //////////////////////////////7 SHOW SCORE
+    clearTriviaHTML();
+    showScore(score);
     return;
   }
   /* Clear the HTML to avoid any problems */
