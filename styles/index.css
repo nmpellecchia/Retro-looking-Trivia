@@ -27,6 +27,66 @@ body {
   align-items: center;
 }
 
+.trivia {
+  display: grid;
+  grid-template-areas:
+    'title round'
+    'trivia trivia';
+}
+
+h1 {
+  grid-area: title;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  line-height: 2rem;
+}
+
+h1::after {
+  content: ' ';
+  display: block;
+  height: 0.3rem;
+  width: 90%;
+  margin: 1rem;
+  border-radius: 3px;
+  background: var(--console-color);
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  grid-area: trivia;
+  text-align: center;
+  border: none;
+}
+
+.question {
+  font-size: 2rem;
+}
+
+ul.answer-list {
+  display: grid;
+  grid-template-columns: repeat(2, 20rem);
+  justify-content: center;
+  gap: 1rem;
+}
+
+.answer-list > li {
+  list-style-type: none;
+  text-transform: uppercase;
+}
+
+.answer-list > li:hover {
+  background: var(--console-color);
+  color: var(--console-bg);
+}
+/* prettier-ignore */
+li > input[type=radio]:checked + li {
+  background: var(--console-color);
+  color: var(--console-bg);
+}
+
 /* html {
   width: 100%;
   height: 100%;
