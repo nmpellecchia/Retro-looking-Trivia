@@ -1,0 +1,211 @@
+/* Import pixelated font */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+/* declare some variables for the colors */
+:root {
+  --console-color: #5bf870;
+  --console-bg: #031e11;
+  --monitor-width: 1.2rem;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  background: var(--console-bg);
+  border: var(--monitor-width) solid #383838;
+  color: var(--console-color);
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+/* Create the scanlines */
+.crt::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* this margin avoids the crt effect on the screen border */
+  margin: var(--monitor-width);
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  z-index: 2;
+  background-size: 100% 4px, 5px 100%;
+  pointer-events: none;
+}
+/* add the flicker effect */
+.crt::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: var(--monitor-width);
+  background: rgba(18, 16, 16, 0.3);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: flicker 0.2s infinite;
+}
+/* flicker animation */
+@keyframes flicker {
+  0% {
+    opacity: 0.27861;
+  }
+  5% {
+    opacity: 0.34769;
+  }
+  10% {
+    opacity: 0.23604;
+  }
+  15% {
+    opacity: 0.99626;
+  }
+  20% {
+    opacity: 0.08128;
+  }
+  25% {
+    opacity: 0.87891;
+  }
+  30% {
+    opacity: 0.65583;
+  }
+  35% {
+    opacity: 0.77807;
+  }
+  40% {
+    opacity: 0.26559;
+  }
+  45% {
+    opacity: 0.84693;
+  }
+  50% {
+    opacity: 0.99919;
+  }
+  55% {
+    opacity: 0.08594;
+  }
+  60% {
+    opacity: 0.20313;
+  }
+  65% {
+    opacity: 0.71988;
+  }
+  70% {
+    opacity: 0.53455;
+  }
+  75% {
+    opacity: 0.37288;
+  }
+  80% {
+    opacity: 0.71428;
+  }
+  85% {
+    opacity: 0.70419;
+  }
+  90% {
+    opacity: 0.7003;
+  }
+  95% {
+    opacity: 0.36108;
+  }
+  100% {
+    opacity: 0.24387;
+  }
+}
+
+/* html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: rgb(66, 0, 87);
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+.trivia-wrapper {
+  background: #ffff;
+  width: 50%;
+  margin: 1rem 0 0 0;
+  border-radius: 50px 50px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1.title {
+  font-size: 2.3rem;
+}
+
+.trivia {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: none;
+  flex-grow: 1;
+  font-size: 2rem;
+}
+
+.answer-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+li {
+  list-style: none;
+  font-size: 1.3rem;
+}
+
+button.new-question {
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem;
+  margin: 0;
+  background: darkblue;
+  color: #ffffff;
+  font-size: 2rem;
+}
+ */
