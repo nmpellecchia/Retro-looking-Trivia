@@ -55,7 +55,7 @@ h1::after {
 fieldset {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   grid-area: trivia;
   text-align: center;
   border: none;
@@ -81,10 +81,28 @@ ul.answer-list {
   background: var(--console-color);
   color: var(--console-bg);
 }
-/* prettier-ignore */
-li > input[type=radio]:checked + li {
+/* checked class still not implemented */
+.answer-list > li.checked {
   background: var(--console-color);
   color: var(--console-bg);
+}
+
+li > input {
+  opacity: 0;
+}
+
+fieldset > button[type='submit'] {
+  background: var(--console-color);
+  color: var(--console-bg);
+  border: 4px solid var(--console-color);
+  font-family: 'VT323', monospace;
+  font-size: 2rem;
+  width: 20%;
+}
+
+fieldset > button[type='submit']:active {
+  background: var(--console-bg);
+  color: var(--console-color);
 }
 
 /* html {
