@@ -28,11 +28,16 @@ h1.title {
   font-size: 2.3rem;
 }
 
-.trivia {
+.counter {
+  display: flex;
+}
+
+.trivia-form {
   display: flex;
   flex-direction: column;
   /*  align-items: center; */
   flex-grow: 1;
+  order: 1;
 }
 
 fieldset {
@@ -54,9 +59,11 @@ fieldset {
 li {
   list-style: none;
   font-size: 1.3rem;
+  order: 1;
 }
 
-button.new-question {
+button#new-question,
+button#start-trivia {
   border: none;
   border-radius: 20px;
   padding: 0.5rem;
@@ -64,4 +71,5 @@ button.new-question {
   background: darkblue;
   color: #ffffff;
   font-size: 2rem;
+  order: 99;
 }
