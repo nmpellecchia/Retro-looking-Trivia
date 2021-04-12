@@ -5,6 +5,12 @@ let totalCount = 0;
 
 function shuffleAnswers(correctAnswer, incorrectAnswers) {
   const shuffledAnswers = [correctAnswer, ...incorrectAnswers];
+
+  // In case there are encoded symbols:
+  for (let i = 0; i < shuffledAnswers.length; i++) {
+    shuffledAnswers[i] = decodeHTML(shuffledAnswers[i]);
+  }
+
   // at first the answers are ordered
   for (let i = shuffledAnswers.length - 1; i > 0; i--) {
     let randIndex = Math.floor(Math.random() * (i + 1));
@@ -56,13 +62,32 @@ function handleQuestion(trivia, firstTime = true) {
   );
 
   /* Add the newQuestion and possible answers inside the HTML */
-  populateHTML(newQuestion.question, shuffledAnswers);
+  /* The question has to be decoded in case there are encoded symbols (Answers are done inside shuffleAnswers() ) */
+  populateHTML(decodeHTML(newQuestion.question), shuffledAnswers);
+
+  ///////////////////////////
+  decodeHTML(newQuestion.question);
 }
 
 function deleteQuestion(trivia) {
   trivia.pop();
 
   return trivia;
+}
+
+function decodeHTML(element) {
+  // Putting the element inside a html element to decode characters like &quot and similars
+  let areaElement = document.createElement('textarea');
+  areaElement.innerHTML = element;
+  // I put the value inside another variable to be able to delete the element created
+  const value = areaElement.value;
+
+  console.log(areaElement.value);
+  console.log(value);
+
+  areaElement.remove();
+
+  return value;
 }
 
 export { handleQuestion };
