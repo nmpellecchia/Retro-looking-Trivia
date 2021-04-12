@@ -32,6 +32,8 @@ body {
   grid-template-areas:
     'title counter'
     'trivia trivia';
+  grid-template-rows: 2fr 1fr;
+  grid-template-columns: 3fr 4fr;
   height: 100%;
   /* glowing effect */
   text-shadow: -2px 0 9px rgba(255, 250, 0, 0.3),
@@ -44,6 +46,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.4rem;
   line-height: 2rem;
+  margin-top: 0.9rem;
 }
 
 h1::after {
@@ -59,9 +62,18 @@ h1::after {
 }
 
 .counter {
+  display: flex;
   grid-area: counter;
   font-size: 3rem;
   justify-self: end;
+  margin-right: 3rem;
+  margin-top: 0.9rem;
+}
+
+.counter > * {
+  margin: 0;
+  padding: 0;
+  line-height: 2rem;
 }
 
 fieldset {
@@ -71,6 +83,8 @@ fieldset {
   grid-area: trivia;
   text-align: center;
   border: none;
+  margin: 0 0 1rem 0;
+  padding: 0;
 }
 
 .question {
@@ -86,6 +100,7 @@ ul.answer-list {
 }
 
 .answer-list > li {
+  display: flex;
   list-style-type: none;
   text-transform: uppercase;
 }
@@ -100,8 +115,14 @@ ul.answer-list {
   color: var(--console-bg);
 }
 
+li > label {
+  flex-grow: 1;
+}
+
 li > input {
-  opacity: 0;
+  /* opacity: 0; */
+  height: 100%;
+  margin: 0;
 }
 
 fieldset > button[type='submit'] {
@@ -111,77 +132,10 @@ fieldset > button[type='submit'] {
   font-family: 'VT323', monospace;
   font-size: 2rem;
   width: 20%;
+  text-transform: uppercase;
 }
 
 fieldset > button[type='submit']:active {
   background: var(--console-bg);
   color: var(--console-color);
 }
-
-/* html {
-  width: 100%;
-  height: 100%;
-}
-body {
-  background: rgb(66, 0, 87);
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-}
-
-.trivia-wrapper {
-  background: #ffff;
-  width: 50%;
-  margin: 1rem 0 0 0;
-  border-radius: 50px 50px 0 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-h1.title {
-  font-size: 2.3rem;
-}
-
-.trivia {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-fieldset {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  border: none;
-  flex-grow: 1;
-  font-size: 2rem;
-}
-
-.answer-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  flex-grow: 1;
-}
-
-li {
-  list-style: none;
-  font-size: 1.3rem;
-}
-
-button.new-question {
-  border: none;
-  border-radius: 20px;
-  padding: 0.5rem;
-  margin: 0;
-  background: darkblue;
-  color: #ffffff;
-  font-size: 2rem;
-}
- */
