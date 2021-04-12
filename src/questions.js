@@ -49,7 +49,7 @@ function handleQuestion(trivia, firstTime = true) {
     console.log('trivia arr is empty');
     //////////////////////////////7 SHOW SCORE
     clearTriviaHTML();
-    showScore(score);
+    showScore(score, totalCount);
     return;
   }
   /* Clear the HTML to avoid any problems */

@@ -79,12 +79,11 @@ function setCounter(total) {
   $trivia.appendChild($counter);
 }
 
-function showScore(score) {
-  const $counter = document.querySelector('.counter');
-  const $answeredQuestions = document.querySelector('.answered-questions');
-  //
-  $counter.classList.add('total-score');
-  $answeredQuestions.innerHTML = score;
+function showScore(score, total) {
+  //////////////
+  const $scoreMessage = document.querySelector('legend');
+  $scoreMessage.innerHTML = `You did it! ${score}/${total}!`;
+  //////////// ADD PLAY AGAIN BUTTON AND MAYBE MSG ACCORDING HOW WELL THEY DID IT
 }
 
 export { populateHTML, clearTriviaHTML, updateCount, setCounter, showScore };
