@@ -82,10 +82,30 @@ function setCounter(total) {
 function showScore(score, total) {
   //////////////
   const $scoreMessage = document.querySelector('legend');
-  $scoreMessage.innerHTML = `You did it! ${score}/${total}!`;
+  $scoreMessage.innerHTML = `${score}/${total} answers correct. ${getMotivationalMessage(
+    score,
+    total
+  )}`;
   //////////// ADD PLAY AGAIN BUTTON AND MAYBE MSG ACCORDING HOW WELL THEY DID IT
 }
 
+function getMotivationalMessage(amount, totalAmount) {
+  const percentage = Math.floor((amount / totalAmount) * 100);
+  // Get a different message based on the % of correct answers
+  if (percentage == 0) {
+    return 'Well... everyone has bad days...';
+  } else if (percentage <= 33) {
+    return "Don't worry. Those questions were hard!";
+  } else if (percentage <= 66) {
+    return 'Pretty good!';
+  } else if (percentage <= 99) {
+    return 'Almost perfect!';
+  } else {
+    return 'You did it! Congratulations!';
+  }
+}
+
+// Visual updating of the checked item
 $list.addEventListener('click', e => {
   let previousChecked = $list.querySelector('.checked') || '';
   previousChecked?.classList?.remove('checked');
