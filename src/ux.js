@@ -1,13 +1,14 @@
+const $list = document.querySelector('ul.answer-list');
+
 function populateHTML(question, answersList) {
   const $button = document.querySelector('button.trivia-item');
-  const $trivia = document.querySelector('.trivia');
-  /* Put the question inside h1 element */
-  const trivia = document.querySelector('.trivia');
-  const $question = document.createElement('legend');
-  $question.classList.add('trivia-item', 'question');
+  const $trivia = document.querySelector('fieldset');
+  /* Select and modify the question instead of creating another one*/
+  const $question = $trivia.querySelector('legend');
+  /* $question.classList.add('trivia-item', 'question'); */
   $question.textContent = question;
 
-  trivia.appendChild($question);
+  /* $trivia.appendChild($question); */
 
   putAnswersInHTML(answersList);
 
@@ -16,12 +17,11 @@ function populateHTML(question, answersList) {
   $nextQuestion.type = 'submit';
   $nextQuestion.classList.add('trivia-item');
   $nextQuestion.id = 'new-question';
-  $nextQuestion.textContent = 'Next';
+  $nextQuestion.textContent = 'next';
   $trivia.appendChild($nextQuestion);
 }
 
 function putAnswersInHTML(answersList) {
-  const $list = document.querySelector('ul.answer-list');
   for (let i = 0; i <= answersList.length - 1; i++) {
     const $item = document.createElement('li');
     $item.classList.add(`answer-${i}`);
@@ -43,10 +43,10 @@ function putAnswersInHTML(answersList) {
 }
 
 function clearTriviaHTML() {
-  const $list = document.querySelector('ul.answer-list');
   $list.innerHTML = '';
   const $question = document.querySelector('.question');
-  $question.remove();
+  /* Empty the question instead of removing */
+  $question.innerHTML = '';
 }
 
 function updateCount(newValue) {
@@ -55,7 +55,7 @@ function updateCount(newValue) {
 }
 
 function setCounter(total) {
-  const $trivia = document.querySelector('.trivia-wrapper');
+  const $trivia = document.querySelector('.trivia');
   //
   const $counter = document.createElement('div');
   $counter.classList.add('counter');
@@ -85,5 +85,12 @@ function showScore(score, total) {
   $scoreMessage.innerHTML = `You did it! ${score}/${total}!`;
   //////////// ADD PLAY AGAIN BUTTON AND MAYBE MSG ACCORDING HOW WELL THEY DID IT
 }
+
+$list.addEventListener('click', e => {
+  let previousChecked = $list.querySelector('.checked') || '';
+  previousChecked?.classList?.remove('checked');
+  console.log(e.target.parentNode);
+  e.target.parentNode.classList.add('checked');
+});
 
 export { populateHTML, clearTriviaHTML, updateCount, setCounter, showScore };
