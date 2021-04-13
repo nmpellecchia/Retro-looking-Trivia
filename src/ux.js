@@ -1,24 +1,17 @@
 const $list = document.querySelector('ul.answer-list');
 
-function populateHTML(question, answersList) {
+function populateHTML(question, answersList, btnID) {
   const $button = document.querySelector('button.trivia-item');
   const $trivia = document.querySelector('fieldset');
   /* Select and modify the question instead of creating another one*/
   const $question = $trivia.querySelector('legend');
-  /* $question.classList.add('trivia-item', 'question'); */
   $question.textContent = question;
-
-  /* $trivia.appendChild($question); */
 
   putAnswersInHTML(answersList);
 
-  $button.remove();
-  const $nextQuestion = document.createElement('button');
-  $nextQuestion.type = 'submit';
-  $nextQuestion.classList.add('trivia-item');
-  $nextQuestion.id = 'new-question';
-  $nextQuestion.textContent = 'next';
-  $trivia.appendChild($nextQuestion);
+  $button.removeAttribute('id');
+  $button.id = `${btnID}-btn`;
+  $button.textContent = btnID;
 }
 
 function putAnswersInHTML(answersList) {

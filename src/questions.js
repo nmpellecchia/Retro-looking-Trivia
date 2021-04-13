@@ -63,7 +63,7 @@ function handleQuestion(trivia, firstTime = true) {
 
   /* Add the newQuestion and possible answers inside the HTML */
   /* The question has to be decoded in case there are encoded symbols (Answers are done inside shuffleAnswers() ) */
-  populateHTML(decodeHTML(newQuestion.question), shuffledAnswers);
+  populateHTML(decodeHTML(newQuestion.question), shuffledAnswers, 'next');
 
   ///////////////////////////
   decodeHTML(newQuestion.question);
