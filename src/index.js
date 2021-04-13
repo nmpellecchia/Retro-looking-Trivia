@@ -19,8 +19,11 @@ async function handleClick(e) {
     // Display the counter and start the trivia
     setCounter(trivia.length);
     handleQuestion(trivia);
-  } else {
+  } else if (e.target.id.includes('next-btn')) {
     handleQuestion(trivia, false);
+  } else {
+    clearTriviaHTML();
+    populateHTML('Select difficulty', difficulty, 'play');
   }
 }
 

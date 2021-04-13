@@ -1,7 +1,6 @@
 const $list = document.querySelector('ul.answer-list');
 
 function populateHTML(question, answersList, btnID) {
-  const $button = document.querySelector('button.trivia-item');
   const $trivia = document.querySelector('fieldset');
   /* Select and modify the question instead of creating another one*/
   const $question = $trivia.querySelector('legend');
@@ -9,9 +8,7 @@ function populateHTML(question, answersList, btnID) {
 
   putAnswersInHTML(answersList);
 
-  $button.removeAttribute('id');
-  $button.id = `${btnID}-btn`;
-  $button.textContent = btnID;
+  setButton(btnID);
 }
 
 function putAnswersInHTML(answersList) {
@@ -33,6 +30,14 @@ function putAnswersInHTML(answersList) {
     /* put the item inside the list */
     $list.appendChild($item);
   }
+}
+
+function setButton(btnID) {
+  const $button = document.querySelector('button.trivia-item');
+
+  $button.removeAttribute('id');
+  $button.id = `${btnID}-btn`;
+  $button.textContent = btnID;
 }
 
 function clearTriviaHTML() {
@@ -80,6 +85,7 @@ function showScore(score, total) {
     total
   )}`;
   //////////// ADD PLAY AGAIN BUTTON AND MAYBE MSG ACCORDING HOW WELL THEY DID IT
+  setButton('restart');
 }
 
 function getMotivationalMessage(amount, totalAmount) {
