@@ -84,7 +84,6 @@ function showScore(score, total) {
     score,
     total
   )}`;
-  //////////// ADD PLAY AGAIN BUTTON AND MAYBE MSG ACCORDING HOW WELL THEY DID IT
   setButton('restart');
 }
 
