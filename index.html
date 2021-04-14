@@ -4,35 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/screen.css" />
     <title>Document</title>
   </head>
   <body>
-    <div class="trivia-wrapper">
-      <h1 class="title">Quiz!</h1>
-      <form class="trivia-form">
-        <fieldset class="trivia">
-          <legend class="trivia-item question">Select difficulty</legend>
-          <ul class="trivia-item answer-list">
-            <li class="answer-1">
-              <input type="radio" name="difficulty" id="a1" value="easy" />
-              <label for="a1">Easy</label>
-            </li>
-
-            <li class="answer-2">
-              <input type="radio" name="difficulty" id="a2" value="medium" />
-              <label for="a2">Medium</label>
-            </li>
-            <li class="answer-3">
-              <input type="radio" name="difficulty" id="a3" value="hard" />
-              <label for="a3">Hard</label>
-            </li>
-          </ul>
-          <button type="submit" class="trivia-item" id="start-trivia">
-            Start
-          </button>
-        </fieldset>
-      </form>
+    <div class="screen">
+      <div class="crt">
+        <form class="trivia">
+          <h1 class="title">Quiz!</h1>
+          <fieldset>
+            <legend class="trivia-item question">
+              Click "Start" to begin.
+            </legend>
+            <ul class="trivia-item answer-list"></ul>
+            <button type="submit" class="trivia-item" id="start-btn">
+              Start
+            </button>
+          </fieldset>
+        </form>
+      </div>
     </div>
 
     <!--  -->

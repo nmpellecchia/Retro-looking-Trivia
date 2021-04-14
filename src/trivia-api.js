@@ -3,8 +3,6 @@ async function getAPIData(url) {
     .then(r => r.json())
     .catch(r => console.log('OH NO! ' + r));
 
-  console.log('data fetched bruh');
-
   return data;
 }
 
@@ -14,8 +12,6 @@ async function getTrivia(difficulty) {
 
   const APIData = await getAPIData(URL);
   const trivia = APIData.results;
-
-  console.log(trivia);
 
   return trivia;
 }
