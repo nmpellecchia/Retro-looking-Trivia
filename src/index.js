@@ -9,21 +9,23 @@ let trivia;
 async function handleClick(e) {
   e.preventDefault();
 
-  if (e.target.id.includes('start-btn')) {
-    clearTriviaHTML();
-    populateHTML('Select difficulty', difficulty, 'play');
-  } else if (e.target.id.includes('play-btn')) {
-    const userDifficulty = document.querySelector('input:checked');
-    // Get the full trivia
-    trivia = await getTrivia(userDifficulty.value);
-    // Display the counter and start the trivia
-    setCounter(trivia.length);
-    handleQuestion(trivia);
-  } else if (e.target.id.includes('next-btn')) {
-    handleQuestion(trivia, false);
-  } else {
-    clearTriviaHTML();
-    populateHTML('Select difficulty', difficulty, 'play');
+  switch (e.target.id) {
+    case 'play-btn':
+      const userDifficulty = document.querySelector('input:checked');
+      // Get the full trivia
+      trivia = await getTrivia(userDifficulty.value);
+      // Display the counter and start the trivia
+      setCounter(trivia.length);
+      handleQuestion(trivia);
+      break;
+
+    case 'next-btn':
+      handleQuestion(trivia, false);
+      break;
+    default:
+      clearTriviaHTML();
+      populateHTML('Select difficulty', difficulty, 'play');
+      break;
   }
 }
 
