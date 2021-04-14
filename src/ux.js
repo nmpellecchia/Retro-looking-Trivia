@@ -47,13 +47,18 @@ function clearTriviaHTML() {
   $question.innerHTML = '';
 }
 
-function updateCount(newValue) {
+function updateCount() {
   const answeredQuestions = document.querySelector('.answered-questions');
-  answeredQuestions.innerHTML = newValue;
+  answeredQuestions.innerHTML = parseInt(answeredQuestions.textContent, 10) + 1;
 }
 
 function setCounter(total) {
   const $trivia = document.querySelector('.trivia');
+  const $previousCounter = $trivia.querySelector('.counter');
+  // In case the user wants to replay remove their previous counter
+  if ($previousCounter) {
+    $previousCounter.remove();
+  }
   //
   const $counter = document.createElement('div');
   $counter.classList.add('counter');
@@ -105,9 +110,10 @@ function getMotivationalMessage(amount, totalAmount) {
 
 // Visual updating of the checked item
 $list.addEventListener('click', e => {
+  // select previous checked item and remove its class
   let previousChecked = $list.querySelector('.checked') || '';
   previousChecked?.classList?.remove('checked');
-  console.log(e.target.parentNode);
+  //add checked class to the item
   e.target.parentNode.classList.add('checked');
 });
 

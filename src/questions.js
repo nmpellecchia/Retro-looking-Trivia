@@ -1,5 +1,9 @@
 import { populateHTML, clearTriviaHTML, updateCount, showScore } from './ux.js';
 
+////////////////////////////
+/////////////////////////////
+/////////////////////////////
+// NEED TO RESET SCORES!!!
 let score = 0;
 let totalCount = 0;
 
@@ -28,11 +32,11 @@ function shuffleAnswers(correctAnswer, incorrectAnswers) {
 function isAnswerCorrect(answer) {
   const userAnswer = document.querySelector('input[name="answer"]:checked');
 
+  // update user score if answered correctly
   if (userAnswer.value == answer) {
     score++;
-  } else {
-    console.log('BUUUUUU');
   }
+  // update the total amount of answered questions
   totalCount++;
   updateCount(totalCount);
 }
@@ -46,10 +50,11 @@ function handleQuestion(trivia, firstTime = true) {
   }
   /* Now that the user input has been handled, check if there's another question */
   if (!trivia.length) {
-    console.log('trivia arr is empty');
-    //////////////////////////////7 SHOW SCORE
     clearTriviaHTML();
     showScore(score, totalCount);
+
+    score = 0;
+    totalCount = 0;
     return;
   }
   /* Clear the HTML to avoid any problems */
@@ -81,9 +86,6 @@ function decodeHTML(element) {
   areaElement.innerHTML = element;
   // I put the value inside another variable to be able to delete the element created
   const value = areaElement.value;
-
-  console.log(areaElement.value);
-  console.log(value);
 
   areaElement.remove();
 
