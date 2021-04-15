@@ -90,7 +90,7 @@ fieldset {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  grid-area: trivia;
+  /* grid-area: trivia; */
   text-align: center;
   /*  */
   height: 100%;
@@ -128,7 +128,7 @@ ul.answer-list {
   background: var(--console-color);
   color: var(--console-bg);
 }
-/* checked class still not implemented */
+
 .answer-list > li.checked {
   background: var(--console-color);
   color: var(--console-bg);
@@ -159,4 +159,51 @@ fieldset > button[type='submit'] {
 fieldset > button[type='submit']:active {
   background: var(--console-bg);
   color: var(--console-color);
+}
+
+@media only screen and (min-device-width: 768px) {
+  .trivia {
+    display: grid;
+    grid-template-areas:
+      'title counter'
+      'trivia trivia';
+    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 3fr 4fr;
+    align-items: baseline;
+  }
+
+  h1 {
+    grid-area: title;
+    text-align: center;
+  }
+
+  .counter {
+    grid-area: counter;
+    justify-self: end;
+    font-size: 3rem;
+    margin-right: 3rem;
+    margin-top: 0.9rem;
+  }
+
+  fieldset {
+    grid-area: trivia;
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+
+  .question {
+    font-size: 2rem;
+  }
+
+  ul.answer-list {
+    display: grid;
+    grid-template-columns: repeat(2, 20rem);
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0 2rem 0;
+  }
+
+  fieldset > button[type='submit'] {
+    width: 20%;
+  }
 }
