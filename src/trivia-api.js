@@ -1,5 +1,6 @@
 async function getAPIData(url) {
   const data = await fetch(url)
+    .then(r => handleErrors(r))
     .then(r => r.json())
     .catch(r => console.log('OH NO! ' + r));
 
@@ -14,6 +15,13 @@ async function getTrivia(difficulty) {
   const trivia = APIData.results;
 
   return trivia;
+}
+
+function handleErrors(resp) {
+  if (!resp.ok) {
+    throw Error(resp.statusText);
+  }
+  return resp;
 }
 
 //////////////////////////////
