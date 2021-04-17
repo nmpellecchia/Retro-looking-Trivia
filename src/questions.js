@@ -1,9 +1,5 @@
 import { populateHTML, clearTriviaHTML, updateCount, showScore } from './ux.js';
 
-////////////////////////////
-/////////////////////////////
-/////////////////////////////
-// NEED TO RESET SCORES!!!
 let score = 0;
 let totalCount = 0;
 

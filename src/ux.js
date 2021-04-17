@@ -24,7 +24,7 @@ function putAnswersInHTML(answersList) {
     const $text = document.createElement('label');
     $text.htmlFor = `a${i}`;
     $text.textContent = answersList[i];
-    /* put the input $ label inside $item */
+    /* put the input $label inside $item */
     $item.appendChild($selector);
     $item.appendChild($text);
     /* put the item inside the list */
@@ -59,7 +59,7 @@ function setCounter(total) {
   if ($previousCounter) {
     $previousCounter.remove();
   }
-  //
+  // Create the counter again
   const $counter = document.createElement('div');
   $counter.classList.add('counter');
   //
@@ -74,7 +74,7 @@ function setCounter(total) {
   const $totalQuestions = document.createElement('p');
   $totalQuestions.classList.add('total-questions');
   $totalQuestions.innerHTML = total;
-  //
+  // Append everything
   $counter.appendChild($answeredQuestions);
   $counter.appendChild($divisor);
   $counter.appendChild($totalQuestions);
@@ -83,7 +83,6 @@ function setCounter(total) {
 }
 
 function showScore(score, total) {
-  //////////////
   const $scoreMessage = document.querySelector('legend');
   $scoreMessage.innerHTML = `${score}/${total} answers correct. ${getMotivationalMessage(
     score,
