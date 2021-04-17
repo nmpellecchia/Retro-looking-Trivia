@@ -4,6 +4,8 @@
 
 ### _using vanilla Javascript, HTML, CSS and the OpenTrivia API._
 
+![game-preview](score-screen.gif)
+
 ## [ENG]
 
 This little project was born as a way to continue practising my skills on an more dynamic website.
